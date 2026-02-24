@@ -47,6 +47,15 @@ const entries: SubCliEntry[] = [
     },
   },
   {
+    name: "mcp",
+    description: "Model Context Protocol (MCP) server for IDE integration",
+    hasSubcommands: true,
+    register: async (program) => {
+      const mod = await import("../mcp-cli.js");
+      mod.registerMcpCli(program);
+    },
+  },
+  {
     name: "gateway",
     description: "Run, inspect, and query the WebSocket Gateway",
     hasSubcommands: true,
