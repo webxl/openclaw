@@ -16,7 +16,7 @@ export type McpServerOptions = {
 };
 
 export type McpHttpOptions = McpServerOptions & {
-  /** Port to listen on (default: 3100). */
+  /** Port to listen on (default: 9878). */
   port?: number;
   /** Bind address (default: "0.0.0.0"). */
   host?: string;
@@ -99,7 +99,7 @@ function extractBearerToken(req: {
  * clients must send `Authorization: Bearer <token>` on every request.
  */
 export async function serveMcpHttp(opts: McpHttpOptions = {}): Promise<void> {
-  const port = opts.port ?? 3100;
+  const port = opts.port ?? 9878;
   const host = opts.host ?? "0.0.0.0";
   const requiredToken =
     opts.token?.trim() ||

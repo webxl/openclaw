@@ -11,7 +11,7 @@ export function registerMcpCli(program: Command) {
     .command("serve")
     .description("Start an MCP server exposing OpenClaw tools")
     .option("--session <key>", "Session key for tool context (e.g. agent:main:main)")
-    .option("--port <port>", "Serve over HTTP on this port (default: 3100 when used)")
+    .option("--port <port>", "Serve over HTTP on this port (default: 9878 when used)")
     .option("--host <host>", "Bind address for HTTP mode (default: 0.0.0.0)")
     .option(
       "--token <token>",
@@ -24,13 +24,13 @@ ${theme.muted("Stdio mode (Cursor spawns the process):")}
   openclaw mcp serve
 
 ${theme.muted("HTTP mode (connect Cursor to a running instance):")}
-  openclaw mcp serve --port 3100
+  openclaw mcp serve --port 9878
 
 ${theme.muted("Cursor config for HTTP mode (~/.cursor/mcp.json):")}
   {
     "mcpServers": {
       "openclaw": {
-        "url": "http://localhost:3100/mcp",
+        "url": "http://localhost:9878/mcp",
         "headers": {
           "Authorization": "Bearer <your-token>"
         }

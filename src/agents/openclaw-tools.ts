@@ -7,6 +7,11 @@ import type { ToolFsPolicy } from "./tool-fs-policy.js";
 import { createAgentsListTool } from "./tools/agents-list-tool.js";
 import { createBrowserTool } from "./tools/browser-tool.js";
 import { createCanvasTool } from "./tools/canvas-tool.js";
+import {
+  createCliHelpTool,
+  createCliListCommandsTool,
+  createCliSearchCommandsTool,
+} from "./tools/cli-discovery-tools.js";
 import { createCliTool } from "./tools/cli-tool.js";
 import type { AnyAgentTool } from "./tools/common.js";
 import { createCronTool } from "./tools/cron-tool.js";
@@ -132,6 +137,9 @@ export function createOpenClawTools(options?: {
       config: options?.config,
     }),
     createCliTool(),
+    createCliListCommandsTool(),
+    createCliHelpTool(),
+    createCliSearchCommandsTool(),
     createAgentsListTool({
       agentSessionKey: options?.agentSessionKey,
       requesterAgentIdOverride: options?.requesterAgentIdOverride,
